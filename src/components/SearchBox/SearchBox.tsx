@@ -1,4 +1,4 @@
-import css from './SearchBox.module.css';
+import css from "./SearchBox.module.css";
 
 interface SearchBoxProps {
   value: string;
@@ -7,14 +7,12 @@ interface SearchBoxProps {
 
 export default function SearchBox({ value, onChange }: SearchBoxProps) {
   return (
-    <div className={css.searchWrapper}>
-      <input
-        type="text"
-        className={css.input}
-        placeholder="Пошук нотаток..."
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-      />
-    </div>
+    <input
+      className={css.input}
+      type="text"
+      placeholder="Search notes"
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+    />
   );
 }
