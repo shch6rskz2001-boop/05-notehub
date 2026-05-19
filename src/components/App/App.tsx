@@ -24,10 +24,15 @@ export default function App() {
     setSearch(value);
     debouncedSetSearch(value);
   };
-
   const { data, isLoading, isError } = useQuery({
     queryKey: ["notes", page, debouncedSearch],
-    queryFn: () => fetchNotes({ page, perPage: 12, search: debouncedSearch }),
+    queryFn: () =>
+      fetchNotes({
+        page,
+        perPage: 12,
+        search: debouncedSearch,
+      }),
+    placeholderData: (previousData) => previousData,
   });
 
   const notes = data?.notes ?? [];
