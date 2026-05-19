@@ -36,20 +36,22 @@ export default function App() {
   return (
     <div className={css.app}>
       <header className={css.toolbar}>
-        <span className={css.logo}>NoteHub</span>
         <SearchBox value={search} onChange={handleSearchChange} />
-        <div className={css.headerRight}>
-          {totalPages > 1 && (
-            <Pagination
-              totalPages={totalPages}
-              currentPage={page}
-              onPageChange={setPage}
-            />
-          )}
-          <button className={css.button} onClick={() => setIsModalOpen(true)}>
-            Create note +
-          </button>
-        </div>
+
+        {totalPages > 1 && (
+          <Pagination
+            totalPages={totalPages}
+            currentPage={page}
+            onPageChange={setPage}
+          />
+        )}
+
+        <button
+          className={css.button}
+          onClick={() => setIsModalOpen(true)}
+        >
+          Create note +
+        </button>
       </header>
 
       {isLoading && <p className={css.status}>Loading notes…</p>}
